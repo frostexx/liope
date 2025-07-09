@@ -126,7 +126,6 @@ func (s *Server) scheduleWithdraw(conn *websocket.Conn, kp *keypair.Full, req Wi
 				waitDuration = 0
 			}
 
-			waitDuration = time.Second * 10
 			time.AfterFunc(waitDuration, func() {
 				s.claimAndTransfer(conn, kp, balance, req)
 			})
